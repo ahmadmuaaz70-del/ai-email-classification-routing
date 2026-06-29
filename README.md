@@ -1,4 +1,4 @@
-<img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/96ec2f47-35a3-4904-9f2b-3ed9de8e6260" /># 🤖 AI Email Classification & Intelligent Routing System
+🤖 AI Email Classification & Intelligent Routing System
 
 I built this project to solve a common business problem: teams spend too much time reading and sorting emails that don't require human attention.
 
