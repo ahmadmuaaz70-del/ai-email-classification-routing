@@ -1,24 +1,20 @@
-🤖 AI Email Classification & Intelligent Routing System
+# 🤖 AI Email Classification & Intelligent Routing System
 
-I built this project to solve a common business problem: teams spend too much time reading and sorting emails that don't require human attention.
+I built this project while learning AI automation with n8n.
 
-Instead of manually reviewing every email, this automation uses Google Gemini to understand the email, classify it, determine whether a human needs to review it, log every email into Google Sheets, and notify the team through Telegram only when immediate action is required.
+The idea was simple.
 
-My goal wasn't simply to automate emails—it was to build a workflow that could understand email context, reduce unnecessary notifications, and demonstrate how AI can support real business processes.
+Businesses receive a lot of emails every day, but not every email needs immediate attention. Instead of someone manually opening every message, I wanted to build a workflow that could read the email, understand its context using AI, decide whether it needs human attention, and automatically organize everything.
+
+The workflow uses Google Gemini to analyze incoming emails, stores every result inside Google Sheets, and only sends a Telegram notification when an email actually requires someone to take action.
+
+This project was a great exercise in combining AI, automation, APIs, and business workflows into a practical solution.
 
 ---
 
-## 🏗️ How It Works
+# 🚀 Workflow
 
-The workflow starts whenever a new email arrives in Gmail.
-
-Google Gemini analyzes the email and returns structured information such as the category, department, priority, confidence score, and whether the email requires human attention.
-
-A JavaScript node prepares the AI response for the rest of the workflow.
-
-Every processed email is logged into Google Sheets to create a searchable audit trail. If the AI determines that immediate action is required, a Telegram notification is sent automatically. Otherwise, the workflow ends without interrupting the team.
-
-```text
+```
 Gmail Trigger
       │
       ▼
@@ -26,49 +22,116 @@ Google Gemini AI
       │
       ▼
 JavaScript Processing
-      ├────────────► Google Sheets (Log Every Email)
+      │
+      ├────────► Google Sheets (Log Every Email)
       │
       ▼
-Needs Human?
+Does it need human attention?
       │
-    Yes
+   Yes │ No
       ▼
 Telegram Notification
 ```
 
 ---
 
-## 💼 Business Problem
+# 📌 What this workflow does
 
-Businesses receive hundreds of emails every day, but not every email needs immediate attention.
+Whenever a new email arrives:
 
-Invoices, customer complaints, job applications, newsletters, billing receipts, meeting reminders, and promotional emails all arrive in the same inbox. Someone has to read each one, decide where it belongs, and determine whether it requires action.
-
-This manual process takes time, interrupts employees, and increases the risk of missing important emails.
-
----
-
-## 💡 Solution
-
-I built this project to automate the first stage of email handling.
-
-Instead of relying on keyword matching, Google Gemini understands the context of each email and returns structured information that the workflow can use to make decisions automatically.
-
-Every email is logged into Google Sheets for record keeping, while only emails that require human attention generate a Telegram notification.
-
-The result is a workflow that reduces repetitive work, keeps a complete audit trail, and helps teams focus on the emails that actually matter.
+- Reads the email automatically
+- Uses Google Gemini to understand the content
+- Classifies the email into a category
+- Detects the responsible department
+- Assigns a priority level
+- Decides whether a human should review it
+- Generates a short explanation for its decision
+- Saves every processed email into Google Sheets
+- Sends a Telegram notification only for important emails
 
 ---
 
-## ✨ Key Features
+# 🧠 Example classifications
 
-* AI-powered email understanding using Google Gemini
-* Automatic email classification
-* Department and priority assignment
-* Human attention detection
-* Google Sheets audit log for every processed email
-* Telegram notifications for important emails only
-* Context-aware decision making instead of simple keyword matching
-* Modular workflow built with n8n
+The workflow successfully classified emails such as:
 
+- Newsletter → General → Low Priority
+- Google Play Receipt → Billing → Low Priority
+- Client Invoice → Billing → Needs Human
+- Job Application → HR → Needs Human
+- Urgent Customer Complaint → Sales → High Priority
+- Internal Meeting Reminder → General → Low Priority
 
+---
+
+# 🛠 Technologies Used
+
+- n8n
+- Google Gemini
+- Gmail API
+- Google Sheets
+- Telegram Bot API
+- JavaScript
+
+---
+
+# 📷 Project Screenshots
+
+### Complete Workflow
+
+![Workflow](The complete n8n workflow.png)
+
+---
+
+### AI Analysis Logged in Google Sheets
+
+![Google Sheets](AI logged emails in Google Sheets.png)
+
+---
+
+### HR Email Notification
+
+![HR Notification](HR email requiring human attention.png)
+
+---
+
+### Urgent Sales Notification
+
+![Sales Notification](Urgent Sales case.png)
+
+---
+
+### Google Sheets Configuration
+
+![Sheets Config](glimps of google sheet node configs.png)
+
+---
+
+# 💡 What I learned
+
+Building this project taught me a lot more than simply connecting nodes in n8n.
+
+I learned how AI can become part of a real business workflow instead of just answering prompts. I also became more comfortable working with APIs, handling structured AI responses, writing JavaScript inside n8n, and designing workflows that reduce manual work.
+
+More importantly, I started thinking about automation from a business perspective—how to save time, reduce repetitive tasks, and make processes more reliable.
+
+---
+
+# 📈 Possible Improvements
+
+Some ideas I would like to add in future versions:
+
+- Support for multiple AI models
+- Confidence threshold configuration
+- Email sentiment analysis
+- Automatic ticket creation
+- CRM integration
+- Dashboard with workflow analytics
+
+---
+
+# 👨‍💻 Author
+
+Ahmad Muaz
+
+Learning AI Automation • n8n • APIs • Python • Business Automation
